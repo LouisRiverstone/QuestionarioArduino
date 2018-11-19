@@ -26,14 +26,14 @@
 		}
 	},
 	{
-		"pergunta": "Quem foi eleito presidente 2018",
+		"pergunta": "Quem sao as minorias",
 		"respostas": {
 			"A": {
-				"descricao": "Bolsonaro",
+				"descricao": "menor quantidade",
 				"certa": true
 			},
 			"B": {
-				"descricao": "Haddad",
+				"descricao": "PESSOAS QUE SAO FORA DO PADRAO PATRIARCAL DESSA NACAO",
 				"certa": true
 			}
 		}
