@@ -1,52 +1,11 @@
 const five = require("johnny-five")
+const questoes = require('./questoes.json')
 const board = new five.Board()
 
 let btns
 let ledGreen
 let ledRed
 let numeroPergunta = 0
-
-const questoes = [
-	{
-		pergunta: "2 + 2",
-		respostas: {
-			A: {
-				descricao: "4",
-				certa: true
-			},
-			B: {
-				descricao: "2",
-				certa: false
-			}
-		}
-	},
-	{
-		pergunta: "qual animal que come com o rabo",
-		respostas: {
-			A: {
-				descricao: "elefante",
-				certa: false
-			},
-			B: {
-				descricao: "sua mae",
-				certa: true
-			}
-		}
-	},
-	{
-		pergunta: "3+3",
-		respostas: {
-			A: {
-				descricao: "6",
-				certa: true
-			},
-			B: {
-				descricao: "2",
-				certa: true
-			}
-		}
-	}
-]
 
 board.on("ready", () => {
 	ledGreen = new five.Led(11)
