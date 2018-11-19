@@ -34,7 +34,7 @@
 			},
 			"B": {
 				"descricao": "rosa",
-				"certa": true
+				"certa": false
 			}
 		}
 	}
