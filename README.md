@@ -43,5 +43,5 @@ Após instalar o Node no seu computador, acesse a pasta dele e execute para inst
 	
 depois de concluir a instalação dos módulos apenas execute
 
-    node index.js
+    npm start
 
