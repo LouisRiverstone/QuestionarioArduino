@@ -12,7 +12,7 @@ board.on("ready", () => {
 	ledGreen = new five.Led(11)
 	ledRed = new five.Led(12)
 	pinos.botoes.forEach(btn => {
-		btns[btn.nome] = new five.Led(btn.pino)
+		btns[btn.nome] = new five.Button(btn.pino)
 	})
 
 	escrevePergunta()
