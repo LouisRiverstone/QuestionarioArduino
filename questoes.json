@@ -1,41 +1,26 @@
 [
 	{
 		"pergunta": "2 + 2",
-		"respostas": {
-			"A": {
-				"descricao": "4",
-				"certa": true
-			},
-			"B": {
-				"descricao": "2",
-				"certa": false
-			}
-		}
+		"opcoes": {
+			"A": "4",
+			"B": "2"
+		},
+		"resposta": "A"
 	},
 	{
 		"pergunta": "Qual animal que tem pelo e faz miau",
-		"respostas": {
-			"A": {
-				"descricao": "elefante",
-				"certa": false
-			},
-			"B": {
-				"descricao": "gato",
-				"certa": true
-			}
-		}
+		"opcoes": {
+			"A": "elefante",
+			"B": "gato"
+		},
+		"resposta": "B"
 	},
 	{
 		"pergunta": "Qual cor tem uma batata",
-		"respostas": {
-			"A": {
-				"descricao": "amarelo",
-				"certa": true
-			},
-			"B": {
-				"descricao": "rosa",
-				"certa": false
-			}
-		}
+		"opcoes": {
+			"A": "amarelo",
+			"B": "rosa"
+		},
+		"resposta": "A"
 	}
 ]

@@ -2,18 +2,18 @@ const five = require('johnny-five')
 const questoes = require('./questoes.json')
 const pinos = require('./pinos.json')
 const board = new five.Board()
-
 const btns = {}
 let ledGreen
 let ledRed
 let numeroPergunta = 0
 
 board.on("ready", () => {
-	ledGreen = new five.Led(11)
-	ledRed = new five.Led(12)
-	pinos.botoes.forEach(btn => {
-		btns[btn.nome] = new five.Button(btn.pino)
-	})
+	ledGreen = new five.Led(pinos.ledVerde)
+	ledRed = new five.Led(pinos.ledVermelho)
+
+	for (const key in pinos.botoes) {
+		btns[key] = new five.Button(pinos.botoes[key])
+	}
 
 	escrevePergunta()
 
@@ -27,9 +27,10 @@ board.on("ready", () => {
 
 function verificaQuestao(tecla) {
 	if (questoes[numeroPergunta]) {
-		if (questoes[numeroPergunta].respostas[tecla].certa) {
+		if (questoes[numeroPergunta].resposta == tecla) {
 			ledGreen.on()
-		} else {
+		}
+		else {
 			ledRed.on()
 		}
 		numeroPergunta++;
@@ -43,13 +44,14 @@ function apagaLed() {
 }
 
 function escrevePergunta() {
-	process.stdout.write('\033c');
+	console.clear();
 	if (questoes[numeroPergunta]) {
 		console.log(questoes[numeroPergunta].pergunta)
-		for (const key in questoes[numeroPergunta].respostas) {
-			console.log(`${key}: ${questoes[numeroPergunta].respostas[key].descricao}`)
+		for (const key in questoes[numeroPergunta].opcoes) {
+			console.log(`${key}: ${questoes[numeroPergunta].opcoes[key]}`)
 		}
-	} else {
+	}
+	else {
 		console.log("Fim da Perguntas")
 	}
 }
