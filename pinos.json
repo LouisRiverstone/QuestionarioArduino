@@ -2,13 +2,13 @@
 	"botoes": [
 		{
 			"nome": "A",
-			"pino": 8
+			"pino": 7
 		},
 		{
 			"nome": "B",
-			"pino": 9
+			"pino": 6
 		}
 	],
-	"ledVerde": 11,
-	"ledVermelho": 12
+	"ledVerde": 12,
+	"ledVermelho": 13
 }
