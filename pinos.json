@@ -1,0 +1,8 @@
+{
+	"botoes": {
+		"A": 8,
+		"B": 9
+	},
+	"ledVerde": 11,
+	"ledVermelho": 12
+}

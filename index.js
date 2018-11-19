@@ -1,5 +1,6 @@
-const five = require("johnny-five")
+const five = require('johnny-five')
 const questoes = require('./questoes.json')
+const pinos = require('./pinos.json')
 const board = new five.Board()
 
 let btns
@@ -8,12 +9,9 @@ let ledRed
 let numeroPergunta = 0
 
 board.on("ready", () => {
-	ledGreen = new five.Led(11)
-	ledRed = new five.Led(12)
-	btns = {
-		A: new five.Button(8),
-		B: new five.Button(9)
-	}
+	ledGreen = pinos.ledVerde
+	ledRed = pinos.ledVermelho
+	btns = pinos.botoes.map(pino => new five.Button(pino))
 
 	escrevePergunta()
 
