@@ -26,14 +26,14 @@
 		}
 	},
 	{
-		"pergunta": "Quem sao as minorias",
+		"pergunta": "Qual cor tem uma batata",
 		"respostas": {
 			"A": {
-				"descricao": "menor quantidade",
+				"descricao": "amarelo",
 				"certa": true
 			},
 			"B": {
-				"descricao": "PESSOAS QUE SAO FORA DO PADRAO PATRIARCAL DESSA NACAO",
+				"descricao": "rosa",
 				"certa": true
 			}
 		}
