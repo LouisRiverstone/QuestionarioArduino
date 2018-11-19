@@ -13,27 +13,27 @@
 		}
 	},
 	{
-		"pergunta": "qual animal que come com o rabo",
+		"pergunta": "Qual animal que tem pelo e faz miau",
 		"respostas": {
 			"A": {
 				"descricao": "elefante",
 				"certa": false
 			},
 			"B": {
-				"descricao": "sua mae",
+				"descricao": "gato",
 				"certa": true
 			}
 		}
 	},
 	{
-		"pergunta": "3+3",
+		"pergunta": "Quem foi eleito presidente 2018",
 		"respostas": {
 			"A": {
-				"descricao": "6",
+				"descricao": "Bolsonaro",
 				"certa": true
 			},
 			"B": {
-				"descricao": "2",
+				"descricao": "Haddad",
 				"certa": true
 			}
 		}
