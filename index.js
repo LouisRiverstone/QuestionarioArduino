@@ -1,99 +1,96 @@
 const five = require("johnny-five")
-const board = new five.Board({ port: "COM3" });
+const board = new five.Board()
 
 let btns
 let ledGreen
 let ledRed
 let numeroPergunta = 0
 
-
 const questoes = [
-    {
-        pergunta: "2 + 2",
-        respostas: {
-            A: {
-                descricao: "4",
-                certa: true
-            },
-            B: {
-                descricao: "2",
-                certa: false
-            }
-        }
-    },
-    {
-        pergunta: "qual animal que come com o rabo",
-        respostas: {
-            A: {
-                descricao: "elefante",
-                certa: false
-            },
-            B: {
-                descricao: "sua mae",
-                certa: true
-            }
-        }
-    },
-    {
-        pergunta: "3+3",
-        respostas: {
-            A: {
-                descricao: "6",
-                certa: true
-            },
-            B: {
-                descricao: "2",
-                certa: true
-            }
-        }
-    }
+	{
+		pergunta: "2 + 2",
+		respostas: {
+			A: {
+				descricao: "4",
+				certa: true
+			},
+			B: {
+				descricao: "2",
+				certa: false
+			}
+		}
+	},
+	{
+		pergunta: "qual animal que come com o rabo",
+		respostas: {
+			A: {
+				descricao: "elefante",
+				certa: false
+			},
+			B: {
+				descricao: "sua mae",
+				certa: true
+			}
+		}
+	},
+	{
+		pergunta: "3+3",
+		respostas: {
+			A: {
+				descricao: "6",
+				certa: true
+			},
+			B: {
+				descricao: "2",
+				certa: true
+			}
+		}
+	}
 ]
 
 board.on("ready", () => {
+	ledGreen = new five.Led(11)
+	ledRed = new five.Led(12)
+	btns = {
+		A: new five.Button(8),
+		B: new five.Button(9)
+	}
 
-    btns = {
-        A: new five.Button(8),
-        B: new five.Button(9)
-    }
+	escrevePergunta()
 
-    ledGreen = new five.Led(11)
-    ledRed = new five.Led(12)
-
-    escrevePergunta()
-    for (const key in btns) {
-        btns[key].on("down", () => {
-            verificaQuestao(key)
-        })
-        btns[key].on("up", apagaLed)
-    }
+	for (const key in btns) {
+		btns[key].on("down", () => {
+			verificaQuestao(key)
+		})
+		btns[key].on("up", apagaLed)
+	}
 })
 
 function verificaQuestao(tecla) {
-    if (questoes[numeroPergunta]) {
-        if (questoes[numeroPergunta].respostas[tecla].certa) {
-            ledGreen.on()
-        } else {
-            ledRed.on()
-        }
-        numeroPergunta++;
-        escrevePergunta()
-
-    }
+	if (questoes[numeroPergunta]) {
+		if (questoes[numeroPergunta].respostas[tecla].certa) {
+			ledGreen.on()
+		} else {
+			ledRed.on()
+		}
+		numeroPergunta++;
+		escrevePergunta()
+	}
 }
 
 function apagaLed() {
-    ledRed.off()
-    ledGreen.off()
+	ledRed.off()
+	ledGreen.off()
 }
 
 function escrevePergunta() {
-    process.stdout.write('\033c');
-    if (questoes[numeroPergunta]) {
-        console.log(questoes[numeroPergunta].pergunta)
-        for (const key in questoes[numeroPergunta].respostas) {
-            console.log(`${key}: ${questoes[numeroPergunta].respostas[key].descricao}`)
-        }
-    } else {
-        console.log("Fim da Perguntas")
-    }
+	process.stdout.write('\033c');
+	if (questoes[numeroPergunta]) {
+		console.log(questoes[numeroPergunta].pergunta)
+		for (const key in questoes[numeroPergunta].respostas) {
+			console.log(`${key}: ${questoes[numeroPergunta].respostas[key].descricao}`)
+		}
+	} else {
+		console.log("Fim da Perguntas")
+	}
 }
